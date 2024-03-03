@@ -1,7 +1,7 @@
 const form = document.getElementById("form");
 const resultElement = document.getElementById("result");
 
-const endpointUrl = "http://127.0.0.1:8080/process_video"; //
+const endpointUrl = "vid-2-sum.azurewebsites.net/process_video"; //
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
