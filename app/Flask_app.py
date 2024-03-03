@@ -1,19 +1,27 @@
 from Video_Processor import Vid2Sum, translate
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from os import path
 import requests
 
 app = Flask(__name__)
 CORS(app)
 app.debug = True
 
+@app.route("/")
+def index():
+    return render_template("webSite.html")
+
+UPLOAD_FOLDER = path.join(app.root_path, 'uploads')
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+    
 @app.route("/process_video", methods=["POST"])
 def process_video():
     if request.method == "POST":
         try:
             video_file = request.files["video"]
-            filename = video_file.filename
-            filePath = "C:\\temp2\\" + filename
+            filename = "uploaded_video.mp4" 
+            file_path = path.join(app.config['UPLOAD_FOLDER'], filename)
             video_file.save(filePath)
 
             input_lang = request.form["inputLang"]
