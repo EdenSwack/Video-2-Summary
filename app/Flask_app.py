@@ -1,13 +1,7 @@
-# pip install flask
-# pip install flask-cors
-# python Flask_app.py
-#python C:\Users\edensc\Downloads\html5up-editorial\Projects\Vid_2_sum_APP\app\Flask_app.py
-
 from Video_Processor import Vid2Sum, translate
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import requests
-
 
 app = Flask(__name__)
 CORS(app)
@@ -38,7 +32,7 @@ def process_video():
                 status=200,
                 headers={
                     "Access-Control-Allow-Origin": "*"
-                },  
+                },
             )
 
             return response
@@ -52,7 +46,3 @@ def process_video():
             return jsonify(error=str(e)), 500
     else:
         return "wrong method sent"
-
-
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8080)
