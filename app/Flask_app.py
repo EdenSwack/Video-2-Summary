@@ -10,7 +10,7 @@ app.debug = True
 
 @app.route("/")
 def index():
-    return render_template("webSite.html")
+    return render_template("app/templates/webSite.html")
 
 UPLOAD_FOLDER = path.join(app.root_path, 'uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
