@@ -1,5 +1,5 @@
 from Video_Processor import Vid2Sum, translate
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from os import path
 import requests
